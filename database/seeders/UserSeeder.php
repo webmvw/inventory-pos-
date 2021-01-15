@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
         	'name' => 'Md. Masud Rana',
         	'email' => 'masudrana.bbpi@gmail.com',
         	'password' => bcrypt('mvw1213'),
+            'role' => '1',
         ]);
     }
 }
