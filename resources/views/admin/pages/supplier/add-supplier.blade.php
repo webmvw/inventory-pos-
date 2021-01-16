@@ -58,7 +58,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="text" name="address" class="form-control" id="address" placeholder="Password">
+                        <input type="text" name="address" class="form-control" id="address" placeholder="Address">
                       </div>
                     </div>
                   </div>

@@ -26,6 +26,6 @@ class SupplierController extends Controller
     	$supplier->address = $request->address;
     	$supplier->created_by = Auth::user()->id;
     	$supplier->save();
-    	return redirect()->route('suppliers.view');
+    	return redirect()->route('suppliers.view')->with("reocrd_added", "Supplier Added Successfully!!");
     }
 }

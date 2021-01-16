@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 
+  <!-- toastr css -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('admin/plugins/toastr/toastr.min.css') }}">
+
 
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.min.css') }}">

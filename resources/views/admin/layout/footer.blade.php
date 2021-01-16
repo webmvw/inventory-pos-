@@ -39,6 +39,9 @@
 <script src="{{ asset('/admin/plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
 
+<!-- toastr js -->
+<script type="text/javascript" src="{{ asset('admin/plugins/toastr/toastr.min.js') }}"></script>
+
 
 <!-- AdminLTE App -->
 <script src="{{ asset('/admin/dist/js/adminlte.min.js') }}"></script>
@@ -119,6 +122,19 @@ $(function () {
   });
 });
 </script>
+
+
+@if(Session::has('reocrd_added'))
+  <script type="text/javascript">
+    toastr.success("{!!Session::get('reocrd_added')!!}");
+    toastr.options.closeMethod = 'fadeOut';
+    toastr.options.closeDuration = 4000;
+    toastr.options.closeEasing = 'swing';
+    toastr.options.closeButton = true;
+  </script>
+@endif
+
+
 
 
 </body>
