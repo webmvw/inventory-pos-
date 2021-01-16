@@ -34,6 +34,11 @@
 <script src="{{ asset('/admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
 
+<!-- jquery-validation -->
+<script src="{{ asset('/admin/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('/admin/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+
+
 
 <!-- AdminLTE App -->
 <script src="{{ asset('/admin/dist/js/adminlte.min.js') }}"></script>
@@ -58,7 +63,65 @@
     });
   });
 </script>
+    <!-- Page specific script -->
+<script>
+$(function () {
+  $('#quickForm').validate({
+    rules: {
+      name: {
+        required: true,
+        maxlength:60,
+      },
+      phone: {
+        required: true,
+        number: true,
+        maxlength: 20,
+      },
+      email: {
+        required: true,
+        email: true,
+      },
+      address: {
+        required: true,
+        maxlength: 100,
+      },
+    },
+    messages: {
+      name: {
+        required: "Please enter name",
+        maxlength: "Your name must be at least 60 characters long"
+      },
+      phone: {
+        required: "Please enter phone",
+        number: "Only numeric characters allowed",
+        maxlength: "Your phone must be at least 20 characters long"
+      },
+      email: {
+        required: "Please enter a email address",
+        email: "Please enter a vaild email address"
+      },
+      address: {
+        required: "Please enter address",
+        maxlength: "Your address must be at least 100 characters long"
+      },
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+});
+</script>
 
 
 </body>
 </html>
+
+

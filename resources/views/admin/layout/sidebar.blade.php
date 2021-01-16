@@ -48,7 +48,7 @@
               <li class="nav-item">
                 <a href="{{ route('suppliers.add') }}" class="nav-link {{ ($route == 'suppliers.add') ? 'active' : '' }} ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Suppliers</p>
+                  <p>Add Supplier</p>
                 </a>
               </li>
             </ul>
