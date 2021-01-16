@@ -1,3 +1,10 @@
+  
+  @php
+    $prefix = Request::route()->getPrefix();
+    $route = Route::current()->getName();
+  @endphp
+
+
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -22,29 +29,31 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+
+          <li class="nav-item {{ ($prefix == '/suppliers') ? 'menu-is-opening menu-open': '' }}">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Forms
+                Manage Suppliers
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../forms/general.html" class="nav-link">
+                <a href="{{ route('suppliers.view') }}" class="nav-link {{ ($route == 'suppliers.view') ? 'active' : '' }} ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
+                  <p>View Suppliers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../forms/advanced.html" class="nav-link">
+                <a href="{{ route('suppliers.add') }}" class="nav-link {{ ($route == 'suppliers.add') ? 'active' : '' }} ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
+                  <p>Add Suppliers</p>
                 </a>
               </li>
             </ul>
           </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>

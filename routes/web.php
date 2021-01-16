@@ -20,3 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function(){
+
+	// suppliers routes
+	Route::group(['prefix' => 'suppliers'], function(){
+		Route::get('/view', [App\Http\Controllers\Admin\SupplierController::class, 'view'])->name('suppliers.view');
+		Route::get('/add', [App\Http\Controllers\Admin\SupplierController::class, 'add'])->name('suppliers.add');
+		Route::post('/store', [App\Http\Controllers\Admin\SupplierController::class, 'store'])->name('suppliers.store');
+	});
+
+});
