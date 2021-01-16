@@ -28,6 +28,9 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::get('/view', [App\Http\Controllers\Admin\SupplierController::class, 'view'])->name('suppliers.view');
 		Route::get('/add', [App\Http\Controllers\Admin\SupplierController::class, 'add'])->name('suppliers.add');
 		Route::post('/store', [App\Http\Controllers\Admin\SupplierController::class, 'store'])->name('suppliers.store');
+		Route::get('/edit/{id}', [App\Http\Controllers\Admin\SupplierController::class, 'edit'])->name('suppliers.edit');
+		Route::post('/update/{id}', [App\Http\Controllers\Admin\SupplierController::class, 'update'])->name('suppliers.update');
+		Route::get('/delete/{id}', [App\Http\Controllers\Admin\SupplierController::class, 'delete'])->name('suppliers.delete');
 	});
 
 });

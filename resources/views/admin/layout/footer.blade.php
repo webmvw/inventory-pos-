@@ -134,6 +134,16 @@ $(function () {
   </script>
 @endif
 
+@if(Session::has('reocrd_updated'))
+  <script type="text/javascript">
+    toastr.success("{!!Session::get('reocrd_updated')!!}");
+    toastr.options.closeMethod = 'fadeOut';
+    toastr.options.closeDuration = 4000;
+    toastr.options.closeEasing = 'swing';
+    toastr.options.closeButton = true;
+  </script>
+@endif
+
 
 
 

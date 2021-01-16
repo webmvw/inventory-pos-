@@ -28,4 +28,21 @@ class SupplierController extends Controller
     	$supplier->save();
     	return redirect()->route('suppliers.view')->with("reocrd_added", "Supplier Added Successfully!!");
     }
+
+
+    public function edit($id){
+    	$getSupplier = Supplier::find($id);
+    	return view('admin.pages.supplier.edit-supplier', compact('getSupplier'));
+    }
+
+    public function update(Request $request, $id){
+    	$getSupplier = Supplier::find($id);
+    	$getSupplier->name = $request->name;
+    	$getSupplier->phone = $request->phone;
+    	$getSupplier->email = $request->email;
+    	$getSupplier->address = $request->address;
+    	$getSupplier->updated_by = Auth::user()->id;
+    	$getSupplier->save();
+    	return redirect()->route('suppliers.view')->with("reocrd_updated", "Supplier updated Successfully!!");
+    }
 }
