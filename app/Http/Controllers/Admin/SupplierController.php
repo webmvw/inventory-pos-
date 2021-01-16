@@ -26,7 +26,7 @@ class SupplierController extends Controller
     	$supplier->address = $request->address;
     	$supplier->created_by = Auth::user()->id;
     	$supplier->save();
-    	return redirect()->route('suppliers.view')->with("reocrd_added", "Supplier Added Successfully!!");
+    	return redirect()->route('suppliers.view')->with("success", "Supplier Added Successfully!!");
     }
 
 
@@ -43,6 +43,12 @@ class SupplierController extends Controller
     	$getSupplier->address = $request->address;
     	$getSupplier->updated_by = Auth::user()->id;
     	$getSupplier->save();
-    	return redirect()->route('suppliers.view')->with("reocrd_updated", "Supplier updated Successfully!!");
+    	return redirect()->route('suppliers.view')->with("info", "Supplier updated Successfully!!");
+    }
+
+    public function delete($id){
+    	$getSupplier = Supplier::find($id);
+    	$getSupplier->delete();
+    	return redirect()->route('suppliers.view')->with("info", "Supplier deleted Successfully!!");
     }
 }

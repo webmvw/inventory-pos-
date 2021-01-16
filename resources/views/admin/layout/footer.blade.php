@@ -124,27 +124,86 @@ $(function () {
 </script>
 
 
-@if(Session::has('reocrd_added'))
+@if(Session::has('success'))
   <script type="text/javascript">
-    toastr.success("{!!Session::get('reocrd_added')!!}");
-    toastr.options.closeMethod = 'fadeOut';
-    toastr.options.closeDuration = 4000;
-    toastr.options.closeEasing = 'swing';
-    toastr.options.closeButton = true;
+    toastr.success("{!!Session::get('success')!!}");
+    toastr.options = {
+      "closeMethod" : 'fadeOut',
+      "closeDuration" : 4000,
+      "closeEasing" : 'swing',
+      "closeButton" : true,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+  </script>
+@endif 
+
+@if(Session::has('error'))
+  <script type="text/javascript">
+    toastr.success("{!!Session::get('error')!!}");
+    toastr.options = {
+      "closeMethod" : 'fadeOut',
+      "closeDuration" : 4000,
+      "closeEasing" : 'swing',
+      "closeButton" : true,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+  </script>
+@endif 
+
+@if(Session::has('warning'))
+  <script type="text/javascript">
+    toastr.success("{!!Session::get('error')!!}");
+    toastr.options = {
+      "closeMethod" : 'fadeOut',
+      "closeDuration" : 4000,
+      "closeEasing" : 'swing',
+      "closeButton" : true,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
   </script>
 @endif
 
-@if(Session::has('reocrd_updated'))
+@if(Session::has('info'))
   <script type="text/javascript">
-    toastr.success("{!!Session::get('reocrd_updated')!!}");
-    toastr.options.closeMethod = 'fadeOut';
-    toastr.options.closeDuration = 4000;
-    toastr.options.closeEasing = 'swing';
-    toastr.options.closeButton = true;
+    toastr.success("{!!Session::get('info')!!}");
+    toastr.options = {
+      "closeMethod" : 'fadeOut',
+      "closeDuration" : 4000,
+      "closeEasing" : 'swing',
+      "closeButton" : true,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
   </script>
 @endif
-
-
+  
 
 
 </body>
