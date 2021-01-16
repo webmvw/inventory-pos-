@@ -44,4 +44,16 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::get('/delete/{id}', [App\Http\Controllers\Admin\CustomerController::class, 'delete'])->name('customers.delete');
 	});
 
+
+
+	// units routes
+	Route::group(['prefix' => 'units'], function(){
+		Route::get('/view', [App\Http\Controllers\Admin\UnitController::class, 'view'])->name('units.view');
+		Route::get('/add', [App\Http\Controllers\Admin\UnitController::class, 'add'])->name('units.add');
+		Route::post('/store', [App\Http\Controllers\Admin\UnitController::class, 'store'])->name('units.store');
+		Route::get('/edit/{id}', [App\Http\Controllers\Admin\UnitController::class, 'edit'])->name('units.edit');
+		Route::post('/update/{id}', [App\Http\Controllers\Admin\UnitController::class, 'update'])->name('units.update');
+		Route::get('/delete/{id}', [App\Http\Controllers\Admin\UnitController::class, 'delete'])->name('units.delete');
+	});
+
 });

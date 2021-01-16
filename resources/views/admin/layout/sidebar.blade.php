@@ -78,6 +78,30 @@
             </ul>
           </li>
 
+          <li class="nav-item {{ ($prefix == '/units') ? 'menu-is-opening menu-open': '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Manage Units
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('units.view') }}" class="nav-link {{ ($route == 'units.view') ? 'active' : '' }} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Unit</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('units.add') }}" class="nav-link {{ ($route == 'units.add') ? 'active' : '' }} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Unit</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
