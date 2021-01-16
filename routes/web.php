@@ -33,4 +33,15 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::get('/delete/{id}', [App\Http\Controllers\Admin\SupplierController::class, 'delete'])->name('suppliers.delete');
 	});
 
+
+	// customers routes
+	Route::group(['prefix' => 'customers'], function(){
+		Route::get('/view', [App\Http\Controllers\Admin\CustomerController::class, 'view'])->name('customers.view');
+		Route::get('/add', [App\Http\Controllers\Admin\CustomerController::class, 'add'])->name('customers.add');
+		Route::post('/store', [App\Http\Controllers\Admin\CustomerController::class, 'store'])->name('customers.store');
+		Route::get('/edit/{id}', [App\Http\Controllers\Admin\CustomerController::class, 'edit'])->name('customers.edit');
+		Route::post('/update/{id}', [App\Http\Controllers\Admin\CustomerController::class, 'update'])->name('customers.update');
+		Route::get('/delete/{id}', [App\Http\Controllers\Admin\CustomerController::class, 'delete'])->name('customers.delete');
+	});
+
 });

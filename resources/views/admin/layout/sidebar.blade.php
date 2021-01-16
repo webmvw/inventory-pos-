@@ -54,35 +54,30 @@
             </ul>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item {{ ($prefix == '/customers') ? 'menu-is-opening menu-open': '' }}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-edit"></i>
               <p>
-                Tables
+                Manage Customers
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../tables/simple.html" class="nav-link">
+                <a href="{{ route('customers.view') }}" class="nav-link {{ ($route == 'customers.view') ? 'active' : '' }} ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
+                  <p>View Customer</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/data.html" class="nav-link">
+                <a href="{{ route('customers.add') }}" class="nav-link {{ ($route == 'customers.add') ? 'active' : '' }} ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../tables/jsgrid.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
+                  <p>Add Customer</p>
                 </a>
               </li>
             </ul>
           </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
