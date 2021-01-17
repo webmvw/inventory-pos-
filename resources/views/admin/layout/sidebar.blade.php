@@ -34,7 +34,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Manage Suppliers
+                Manage Supplier
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -58,7 +58,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Manage Customers
+                Manage Customer
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -82,7 +82,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Manage Units
+                Manage Unit
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -97,6 +97,31 @@
                 <a href="{{ route('units.add') }}" class="nav-link {{ ($route == 'units.add') ? 'active' : '' }} ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Unit</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <li class="nav-item {{ ($prefix == '/categorys') ? 'menu-is-opening menu-open': '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Manage Category
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('categorys.view') }}" class="nav-link {{ ($route == 'categorys.view') ? 'active' : '' }} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Category</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('categorys.add') }}" class="nav-link {{ ($route == 'categorys.add') ? 'active' : '' }} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Category</p>
                 </a>
               </li>
             </ul>

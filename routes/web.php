@@ -56,4 +56,15 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::get('/delete/{id}', [App\Http\Controllers\Admin\UnitController::class, 'delete'])->name('units.delete');
 	});
 
+
+	// categorys routes
+	Route::group(['prefix' => 'categorys'], function(){
+		Route::get('/view', [App\Http\Controllers\Admin\CategoryController::class, 'view'])->name('categorys.view');
+		Route::get('/add', [App\Http\Controllers\Admin\CategoryController::class, 'add'])->name('categorys.add');
+		Route::post('/store', [App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('categorys.store');
+		Route::get('/edit/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'edit'])->name('categorys.edit');
+		Route::post('/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('categorys.update');
+		Route::get('/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'delete'])->name('categorys.delete');
+	});
+
 });
