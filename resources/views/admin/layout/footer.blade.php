@@ -124,6 +124,60 @@ $(function () {
 </script>
 
 
+<!-- product form validation -->
+<script>
+$(function () {
+  $('#productForm').validate({
+    rules: {
+      name: {
+        required: true,
+        maxlength:60,
+      },
+      supplier: {
+        required: true,
+      },
+      category: {
+        required: true,
+      },
+      unit: {
+        required: true,
+      },
+    },
+    messages: {
+      name: {
+        required: "Please enter name",
+        maxlength: "Your name must be at least 60 characters long"
+      },
+      supplier: {
+        required: "Please select supplier",
+      },
+      category: {
+        required: "Please select category",
+      },
+      unit: {
+        required: "Please select unit",
+      },
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+});
+</script>
+
+
+
+
+
+
 @if(Session::has('success'))
   <script type="text/javascript">
     toastr.success("{!!Session::get('success')!!}");
