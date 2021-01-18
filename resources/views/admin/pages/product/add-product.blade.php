@@ -44,7 +44,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="supplier">Supplier</label>
-                        <select id="supplier" class="form-control" name="supplier">
+                        <select id="supplier" class="form-control select2" name="supplier">
                           <option value="">Please Select Supplier</option>
                           @foreach($suppliers as $supplier)
                             <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>

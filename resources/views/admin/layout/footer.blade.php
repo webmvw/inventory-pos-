@@ -38,15 +38,75 @@
 <script src="{{ asset('/admin/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('/admin/plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
+<!-- Select2 -->
+<script src="{{ asset('/admin/plugins/select2/js/select2.full.min.js') }}"></script>
+
 
 <!-- toastr js -->
 <script type="text/javascript" src="{{ asset('admin/plugins/toastr/toastr.min.js') }}"></script>
 
 
 <!-- AdminLTE App -->
-<script src="{{ asset('/admin/dist/js/adminlte.min.js') }}"></script>
+<script src="{{ asset('admin/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{ asset('/admin/dist/js/demo.js') }}"></script>
+<script src="{{ asset('admin/dist/js/demo.js') }}"></script>
+
+
+    <script type="text/javascript">
+      $(function(){
+        $.ajaxSetup({
+          headers:{
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+
+        $(document).on('change', '#purchase_supplier', function(){
+          var supplier_id = $(this).val();
+          $.ajax({
+            url:"{{ route('get_category') }}",
+            type:"GET",
+            data:{supplier_id:supplier_id},
+            success:function(data){
+              var html = '<option value="">Select Category</option>';
+              $.each(data,function(key,v){
+                html += '<option value="'+v.category_id+'">'+v.category.name+'</option>';
+              });
+              $('#purchase_category').html(html);
+            }
+          });  
+        });
+      });
+    </script>
+
+
+    <script type="text/javascript">
+      $(function(){
+        $.ajaxSetup({
+          headers:{
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+
+        $(document).on('change', '#purchase_category', function(){
+          var category_id = $(this).val();
+          $.ajax({
+            url:"{{ route('get_product') }}",
+            type:"GET",
+            data:{category_id:category_id},
+            success:function(data){
+              var html = '<option value="">Select Product</option>';
+              $.each(data,function(key,v){
+                html += '<option value="'+v.id+'">'+v.name+'</option>';
+              });
+              $('#purchase_product').html(html);
+            }
+          });  
+        });
+      });
+    </script>
+
+
+
 
 <!-- Page specific script -->
 <script>
@@ -66,7 +126,14 @@
     });
   });
 </script>
-    <!-- Page specific script -->
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+  });
+</script>
+
 <script>
 $(function () {
   $('#quickForm').validate({
