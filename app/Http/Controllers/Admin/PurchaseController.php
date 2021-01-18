@@ -26,15 +26,27 @@ class PurchaseController extends Controller
     }
 
     public function store(Request $request){
-    	$product = new Product;
-    	$product->name = $request->name;
-    	$product->supplier_id = $request->supplier;
-    	$product->category_id = $request->category;
-    	$product->unit_id = $request->unit;
-    	$product->quantity = "0";
-    	$product->created_by = Auth::user()->id;
-    	$product->save();
-    	return redirect()->route('products.view')->with("success", "Product Added Successfully!!");
+    	if ($request->category_id == null) {
+            return redirect()->back()->with('error', 'Sorry! you do not select any item.');
+        }else{
+            $count_category = count($request->category_id);
+            for ($i=0; $i < $count_category; $i++) { 
+                $purchase = new Purchase();
+                $purchase->supplier_id = $request->purchase_supplier_id[$i];
+                $purchase->product_id = $request->product_id[$i];
+                $purchase->category_id = $request->category_id[$i];
+                $purchase->purchase_no = $request->purchase_no[$i];
+                $purchase->date = date('Y-m-d', strtotime($request->date[$i]));
+                $purchase->description = $request->description[$i];
+                $purchase->quantity = $request->buying_qty[$i];
+                $purchase->unit_price = $request->unit_price[$i];
+                $purchase->buying_price = $request->buying_price[$i];
+                $purchase->status = "0";
+                $purchase->created_by = Auth::user()->id;
+                $purchase->save();  
+            }
+            return redirect()->route('purchases.view')->with("success", "Purchase updated Successfully!!");
+        }
     }
 
 
