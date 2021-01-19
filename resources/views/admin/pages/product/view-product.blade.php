@@ -54,8 +54,13 @@
                         <td>{{ $value->unit->name }}</td>
                         <td>{{ $value->quantity }}</td>
                         <td>
+                          @php
+                            $countProduct = App\Models\Purchase::where('product_id', $value->id)->count();
+                          @endphp
                           <a href="{{ route('products.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                          @if($countProduct<1)
                           <a href="{{ route('products.delete', $value->id) }}" id="deleteButton" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                          @endif
                         </td>
                       </tr>
                   @endforeach

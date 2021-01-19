@@ -52,8 +52,13 @@
                         <td>{{ $value->email }}</td>
                         <td>{{ $value->address }}</td>
                         <td>
+                          @php
+                            $countSupplier = App\Models\Product::where('supplier_id', $value->id)->count();
+                          @endphp
                           <a href="{{ route('suppliers.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                          @if($countSupplier<1)
                           <a href="{{ route('suppliers.delete', $value->id) }}" id="deleteButton" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                          @endif
                         </td>
                       </tr>
                   @endforeach
