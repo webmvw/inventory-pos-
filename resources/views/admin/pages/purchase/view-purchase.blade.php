@@ -44,8 +44,8 @@
                     <th>Quantity</th>
                     <th>Unit Price</th>
                     <th>Buying price</th>
-                    <th>Status</th>                    
-                    <th>Action</th>
+                    <th>Status</th>
+                    <th>Action</th> 
                   </tr>
                   </thead>
                   <tbody>
@@ -68,8 +68,8 @@
                           @endif
                         </td>
                         <td>
-                          @if($value->status == 0)
-                          <a href="{{ route('purchases.delete', $value->id) }}" onclick="return confirm('are your sure to delete it!!')" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                           @if($value->status == 0)
+                          <a href="{{ route('purchases.delete', $value->id) }}" id="deleteButton" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                           @endif
                         </td>
                       </tr>
@@ -87,8 +87,8 @@
                     <th>Quantity</th>
                     <th>Unit Price</th>
                     <th>Buying price</th>
-                    <th>Status</th>                    
-                    <th>Action</th>
+                    <th>Status</th>
+                    <th>Action</th>  
                   </tr>
                   </tfoot>
                 </table>

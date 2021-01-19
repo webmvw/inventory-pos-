@@ -14,7 +14,7 @@ use Auth;
 class PurchaseController extends Controller
 {
     public function view(){
-    	$allPurchases = Purchase::orderBy('date', 'desc')->orderBy('id', 'desc')->get();
+         $allPurchases = Purchase::orderBy('date', 'desc')->orderBy('id', 'desc')->get();
     	return view('admin.pages.purchase.view-purchase', compact('allPurchases'));
     }
 
@@ -53,11 +53,24 @@ class PurchaseController extends Controller
     public function delete($id){
     	$getPurchase = Purchase::find($id);
     	$getPurchase->delete();
-    	return redirect()->route('purchases.view')->with("info", "Product deleted Successfully!!");
+    	return redirect()->route('purchases.view')->with("success", "Purchase deleted Successfully!!");
     }
 
     public function pendingList(){
         $allPurchases = Purchase::orderBy('date', 'desc')->orderBy('id', 'desc')->where('status', '0')->get();
         return view('admin.pages.purchase.view-pendinglist', compact('allPurchases'));
     }
+
+    public function approved($id){
+        $purchase = Purchase::find($id);
+        $product = Product::where('id', $purchase->product_id)->first();
+        $purchase_qty = ((float)($purchase->quantity))+((float)($product->quantity));
+        $product->quantity = $purchase_qty;
+        if($product->save()){
+            $purchase->status = '1';
+            $purchase->save();
+            return redirect()->route('purchases.pendingList')->with("success", "Purchase approved Successfully!!");
+        } 
+    }
+
 }

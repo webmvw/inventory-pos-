@@ -87,6 +87,7 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::post('/store', [App\Http\Controllers\Admin\PurchaseController::class, 'store'])->name('purchases.store');
 		Route::get('/delete/{id}', [App\Http\Controllers\Admin\PurchaseController::class, 'delete'])->name('purchases.delete');
 		Route::get('/pendingList', [App\Http\Controllers\Admin\PurchaseController::class, 'pendingList'])->name('purchases.pendingList');
+		Route::get('/approved/{id}', [App\Http\Controllers\Admin\PurchaseController::class, 'approved'])->name('purchases.approved');
 	});
 
 

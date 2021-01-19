@@ -68,7 +68,7 @@
                         </td>
                         <td>
                           @if($value->status == 0)
-                          <a href="" id="approveButton" title="Approve" class="btn btn-primary btn-sm"><i class="fa fa-check-circle"></i></a>
+                          <a href="{{ route('purchases.approved', $value->id) }}" id="approveButton" title="Approve" class="btn btn-primary btn-sm"><i class="fa fa-check-circle"></i></a>
                           @endif
                         </td>
                       </tr>
@@ -119,6 +119,7 @@
             confirmButtonText: 'Yes, approve it!'
           }).then((result) => {
             if (result.isConfirmed) {
+              window.location.href=link;
               Swal.fire(
                 'Approved!',
                 'Your file has been Approved.',
