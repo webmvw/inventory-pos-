@@ -26,6 +26,9 @@
   <!-- toastr css -->
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/plugins/toastr/toastr.min.css') }}">
 
+   <!-- sweetalert2 css -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('admin/plugins/sweetalert2/sweetalert2.min.css') }}"> 
+
 
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.min.css') }}">
@@ -62,6 +65,9 @@
 
   <!-- toastr js -->
   <script type="text/javascript" src="{{ asset('admin/plugins/toastr/toastr.min.js') }}"></script>
+
+  <!-- toastr js -->
+  <script type="text/javascript" src="{{ asset('admin/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
 
 
   <!-- AdminLTE App -->

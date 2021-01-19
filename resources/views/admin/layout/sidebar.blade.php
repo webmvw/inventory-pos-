@@ -42,13 +42,7 @@
               <li class="nav-item">
                 <a href="{{ route('suppliers.view') }}" class="nav-link {{ ($route == 'suppliers.view') ? 'active' : '' }} ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View Suppliers</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('suppliers.add') }}" class="nav-link {{ ($route == 'suppliers.add') ? 'active' : '' }} ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Supplier</p>
+                  <p>View Supplier</p>
                 </a>
               </li>
             </ul>
@@ -69,12 +63,6 @@
                   <p>View Customer</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{ route('customers.add') }}" class="nav-link {{ ($route == 'customers.add') ? 'active' : '' }} ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Customer</p>
-                </a>
-              </li>
             </ul>
           </li>
 
@@ -91,12 +79,6 @@
                 <a href="{{ route('units.view') }}" class="nav-link {{ ($route == 'units.view') ? 'active' : '' }} ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Unit</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('units.add') }}" class="nav-link {{ ($route == 'units.add') ? 'active' : '' }} ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Unit</p>
                 </a>
               </li>
             </ul>
@@ -118,12 +100,6 @@
                   <p>View Category</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{ route('categorys.add') }}" class="nav-link {{ ($route == 'categorys.add') ? 'active' : '' }} ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Category</p>
-                </a>
-              </li>
             </ul>
           </li>
 
@@ -141,12 +117,6 @@
                 <a href="{{ route('products.view') }}" class="nav-link {{ ($route == 'products.view') ? 'active' : '' }} ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Product</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('products.add') }}" class="nav-link {{ ($route == 'products.add') ? 'active' : '' }} ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Product</p>
                 </a>
               </li>
             </ul>
@@ -169,9 +139,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('purchases.add') }}" class="nav-link {{ ($route == 'purchases.add') ? 'active' : '' }} ">
+                <a href="{{ route('purchases.pendingList') }}" class="nav-link {{ ($route == 'purchases.pendingList') ? 'active' : '' }} ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Purchase</p>
+                  <p>Approval Purchase</p>
                 </a>
               </li>
             </ul>

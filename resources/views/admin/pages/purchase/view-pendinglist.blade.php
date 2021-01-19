@@ -26,8 +26,7 @@
 
         <div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
-            <h3 class="card-title">Purchase List</h3>
-            <a href="{{ route('purchases.add') }}" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> Add Purchase</a>
+            <h3 class="card-title">Pending Purchase List</h3>
           </div>
 
           <!-- /.card-header -->
@@ -69,7 +68,7 @@
                         </td>
                         <td>
                           @if($value->status == 0)
-                          <a href="{{ route('purchases.delete', $value->id) }}" onclick="return confirm('are your sure to delete it!!')" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                          <a href="" id="approveButton" title="Approve" class="btn btn-primary btn-sm"><i class="fa fa-check-circle"></i></a>
                           @endif
                         </td>
                       </tr>
@@ -104,5 +103,33 @@
       </div> <!-- .container-fluid end -->
     </section> <!-- .content end -->
     <!-- /.content -->
+
+    <script type="text/javascript">
+      $(function(){
+        $(document).on('click', '#approveButton', function(e){
+          e.preventDefault();
+          var link = $(this).attr('href');
+          Swal.fire({
+            title: 'Are you sure?',
+            text: "You went to approve this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, approve it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Approved!',
+                'Your file has been Approved.',
+                'success'
+              )
+            }
+          })
+        });
+      });
+    </script>
+
+
 
     @endsection

@@ -41,6 +41,36 @@
   });
 </script>
 
+
+<!-- sweet alert2  -->
+<script type="text/javascript">
+      $(function(){
+        $(document).on('click', '#deleteButton', function(e){
+          e.preventDefault();
+          var link = $(this).attr('href');
+          Swal.fire({
+            title: 'Are you sure?',
+            text: "You went to delete this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been Deleted.',
+                'success'
+              )
+            }
+          })
+        });
+      });
+    </script>
+
+
+
 <script>
 $(function () {
   $('#quickForm').validate({

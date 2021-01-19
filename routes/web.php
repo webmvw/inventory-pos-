@@ -85,9 +85,8 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::get('/view', [App\Http\Controllers\Admin\PurchaseController::class, 'view'])->name('purchases.view');
 		Route::get('/add', [App\Http\Controllers\Admin\PurchaseController::class, 'add'])->name('purchases.add');
 		Route::post('/store', [App\Http\Controllers\Admin\PurchaseController::class, 'store'])->name('purchases.store');
-		Route::get('/edit/{id}', [App\Http\Controllers\Admin\PurchaseController::class, 'edit'])->name('purchases.edit');
-		Route::post('/update/{id}', [App\Http\Controllers\Admin\PurchaseController::class, 'update'])->name('purchases.update');
 		Route::get('/delete/{id}', [App\Http\Controllers\Admin\PurchaseController::class, 'delete'])->name('purchases.delete');
+		Route::get('/pendingList', [App\Http\Controllers\Admin\PurchaseController::class, 'pendingList'])->name('purchases.pendingList');
 	});
 
 

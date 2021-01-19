@@ -45,34 +45,19 @@ class PurchaseController extends Controller
                 $purchase->created_by = Auth::user()->id;
                 $purchase->save();  
             }
-            return redirect()->route('purchases.view')->with("success", "Purchase updated Successfully!!");
+            return redirect()->route('purchases.view')->with("success", "Purchase added Successfully!!");
         }
     }
 
 
-    public function edit($id){
-    	$data['getProduct'] = Product::find($id);
-    	$data['suppliers'] = Supplier::get();
-    	$data['categorys'] = Category::get();
-    	$data['units'] = Unit::get();
-    	return view('admin.pages.product.edit-product', $data);
-    }
-
-    public function update(Request $request, $id){
-    	$getProduct = Product::find($id);
-    	$getProduct->name = $request->name;
-    	$getProduct->supplier_id = $request->supplier;
-    	$getProduct->category_id = $request->category;
-    	$getProduct->unit_id = $request->unit;
-    	$getProduct->quantity = "0";
-    	$getProduct->updated_by = Auth::user()->id;
-    	$getProduct->save();
-    	return redirect()->route('products.view')->with("info", "Product updated Successfully!!");
-    }
-
     public function delete($id){
-    	$getProduct = Product::find($id);
-    	$getProduct->delete();
-    	return redirect()->route('products.view')->with("info", "Product deleted Successfully!!");
+    	$getPurchase = Purchase::find($id);
+    	$getPurchase->delete();
+    	return redirect()->route('purchases.view')->with("info", "Product deleted Successfully!!");
+    }
+
+    public function pendingList(){
+        $allPurchases = Purchase::orderBy('date', 'desc')->orderBy('id', 'desc')->where('status', '0')->get();
+        return view('admin.pages.purchase.view-pendinglist', compact('allPurchases'));
     }
 }

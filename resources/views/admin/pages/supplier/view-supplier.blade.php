@@ -53,7 +53,7 @@
                         <td>{{ $value->address }}</td>
                         <td>
                           <a href="{{ route('suppliers.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                          <a href="{{ route('suppliers.delete', $value->id) }}" onclick="return confirm('are your sure to delete it!!')" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                          <a href="{{ route('suppliers.delete', $value->id) }}" id="deleteButton" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </td>
                       </tr>
                   @endforeach
