@@ -43,7 +43,7 @@
               </div>
               <div class="col-md-4 form-group">
                 <label for="purchase_supplier">Supplier</label>
-                <select id="purchase_supplier" class="form-control" name="purchase_supplier">
+                <select id="purchase_supplier" class="form-control select2" name="purchase_supplier">
                   <option value="">Select Supplier</option>
                   @foreach($suppliers as $supplier)
                     <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
@@ -55,13 +55,13 @@
             <div class="row">
               <div class="col-md-4 form-group">
                 <label for="purchase_category">Category</label>
-                <select id="purchase_category" class="form-control" name="purchase_category">
+                <select id="purchase_category" class="form-control select2" name="purchase_category">
                   <option value="">Select Category</option>
                 </select>
               </div>
               <div class="col-md-4 form-group">
                 <label for="purchase_product">Product</label>
-                <select id="purchase_product" class="form-control" name="purchase_product">
+                <select id="purchase_product" class="form-control select2" name="purchase_product">
                   <option value="">Select Product</option>
                 </select>
               </div>

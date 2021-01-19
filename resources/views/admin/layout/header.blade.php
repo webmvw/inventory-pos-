@@ -60,7 +60,7 @@
   <script src="{{ asset('/admin/plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
   <!-- Select2 -->
-  <script src="{{ asset('/admin/plugins/select2/js/select2.full.min.js') }}"></script>
+  <script src="{{ asset('/admin/plugins/select2/js/select2.min.js') }}"></script>
 
 
   <!-- toastr js -->
