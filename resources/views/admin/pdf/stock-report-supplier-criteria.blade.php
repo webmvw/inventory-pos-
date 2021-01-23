@@ -33,15 +33,23 @@
             <th>SL</th>
             <th>Category</th>
             <th>Product Name</th>
-            <th>Quantity</th>
+            <th>In.Qty</th>
+            <th>Out.Qty</th>
+            <th>Stock</th>>
           </tr>
           </thead>
           <tbody>
             @foreach($products as $key=>$value)
+            	@php 
+	              $buying_total = App\Models\Purchase::where('category_id', $value->category_id)->where('product_id', $value->id)->where('status', '1')->sum('quantity');
+	              $selling_total = App\Models\InvoiceDetail::where('category_id', $value->category_id)->where('product_id', $value->id)->where('status', '1')->sum('selling_qty');
+	            @endphp
               <tr>
                 <td>{{ $key+1 }}</td>
                 <td>{{ $value->category->name }}</td>
                 <td>{{ $value->name }}</td>
+                <td>{{ $buying_total }}</td>
+                <td>{{ $selling_total }}</td>
                 <td>{{ $value->quantity }} {{ $value->unit->name }}</td>
               </tr>
           @endforeach
