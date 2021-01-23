@@ -113,4 +113,13 @@ Route::group(['middleware' => 'auth'], function(){
 	});
 
 
+	// stock routes
+	Route::group(['prefix' => 'stock'], function(){
+		Route::get('/report', [App\Http\Controllers\Admin\StockController::class, 'stockReport'])->name('stock.report');
+		Route::get('/report/pdf', [App\Http\Controllers\Admin\StockController::class, 'stockReportPdf'])->name('stock.report.pdf');
+		Route::get('/report/criteria', [App\Http\Controllers\Admin\StockController::class, 'stockReportCriteria'])->name('stock.criteria');
+		Route::get('/report/criteria/supplier', [App\Http\Controllers\Admin\StockController::class, 'stockReportCriteriaSupplier'])->name('stock.criteria.supplier');
+		Route::get('/report/criteria/category', [App\Http\Controllers\Admin\StockController::class, 'stockReportCriteriaCategory'])->name('stock.criteria.category');
+	});
+
 });
