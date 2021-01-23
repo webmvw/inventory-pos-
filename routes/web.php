@@ -94,6 +94,21 @@ Route::group(['middleware' => 'auth'], function(){
 	// default controlelr route 
 	Route::get('/get_category', [App\Http\Controllers\Admin\DefaultController::class, 'getCategory'])->name('get_category');
 	Route::get('/get_product', [App\Http\Controllers\Admin\DefaultController::class, 'getProduct'])->name('get_product');
+	Route::get('/get_stock_check', [App\Http\Controllers\Admin\DefaultController::class, 'get_stock_check'])->name('get_stock_check');
+
+
+	// invoices routes 
+	Route::group(['prefix' => 'invoices'], function(){
+		Route::get('/view', [App\Http\Controllers\Admin\InvoiceController::class, 'view'])->name('invoices.view');
+		Route::get('/add', [App\Http\Controllers\Admin\InvoiceController::class, 'add'])->name('invoices.add');
+		Route::post('/store', [App\Http\Controllers\Admin\InvoiceController::class, 'store'])->name('invoices.store');
+		Route::get('/delete/{id}', [App\Http\Controllers\Admin\InvoiceController::class, 'delete'])->name('invoices.delete');
+		Route::get('/pendingList', [App\Http\Controllers\Admin\InvoiceController::class, 'pendingList'])->name('invoices.pendingList');
+		Route::get('/approved/{id}', [App\Http\Controllers\Admin\InvoiceController::class, 'approved'])->name('invoices.approved');
+		Route::post('/approval/store/{id}', [App\Http\Controllers\Admin\InvoiceController::class, 'approvalStore'])->name('approval.store');
+		Route::get('/invoices/printList', [App\Http\Controllers\Admin\InvoiceController::class, 'printList'])->name('invoices.printList');	
+		Route::get('/invoices/print/{id}', [App\Http\Controllers\Admin\InvoiceController::class, 'invoicePrint'])->name('invoices.print');
+	});
 
 
 });

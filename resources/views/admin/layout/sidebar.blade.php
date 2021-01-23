@@ -147,6 +147,37 @@
             </ul>
           </li>
 
+          <li class="nav-item {{ ($prefix == '/invoices') ? 'menu-is-opening menu-open': '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Manage Invoice
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('invoices.view') }}" class="nav-link {{ ($route == 'invoices.view') ? 'active' : '' }} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Invoice</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('invoices.pendingList') }}" class="nav-link {{ ($route == 'invoices.pendingList') ? 'active' : '' }} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Approval Invoice</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('invoices.printList') }}" class="nav-link {{ ($route == 'invoices.printList') ? 'active' : '' }} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Invoice Print</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

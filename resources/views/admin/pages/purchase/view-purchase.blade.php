@@ -45,7 +45,6 @@
                     <th>Unit Price</th>
                     <th>Buying price</th>
                     <th>Status</th>
-                    <th>Action</th> 
                   </tr>
                   </thead>
                   <tbody>
@@ -67,11 +66,6 @@
                           <span style="background: green;color:#fff;padding: 5px;font-size:14px;">Approved</span>
                           @endif
                         </td>
-                        <td>
-                           @if($value->status == 0)
-                          <a href="{{ route('purchases.delete', $value->id) }}" id="deleteButton" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                          @endif
-                        </td>
                       </tr>
                   @endforeach
 
@@ -87,8 +81,7 @@
                     <th>Quantity</th>
                     <th>Unit Price</th>
                     <th>Buying price</th>
-                    <th>Status</th>
-                    <th>Action</th>  
+                    <th>Status</th>  
                   </tr>
                   </tfoot>
                 </table>

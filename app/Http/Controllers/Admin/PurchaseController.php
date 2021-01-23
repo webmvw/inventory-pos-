@@ -14,7 +14,7 @@ use Auth;
 class PurchaseController extends Controller
 {
     public function view(){
-         $allPurchases = Purchase::orderBy('date', 'desc')->orderBy('id', 'desc')->get();
+         $allPurchases = Purchase::orderBy('date', 'desc')->orderBy('id', 'desc')->where('status', '1')->get();
     	return view('admin.pages.purchase.view-purchase', compact('allPurchases'));
     }
 

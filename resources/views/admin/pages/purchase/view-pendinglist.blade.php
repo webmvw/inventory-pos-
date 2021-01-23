@@ -69,6 +69,7 @@
                         <td>
                           @if($value->status == 0)
                           <a href="{{ route('purchases.approved', $value->id) }}" id="approveButton" title="Approve" class="btn btn-primary btn-sm"><i class="fa fa-check-circle"></i></a>
+                          <a href="{{ route('purchases.delete', $value->id) }}" id="deleteButton" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                           @endif
                         </td>
                       </tr>
