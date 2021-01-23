@@ -108,6 +108,8 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::post('/approval/store/{id}', [App\Http\Controllers\Admin\InvoiceController::class, 'approvalStore'])->name('approval.store');
 		Route::get('/invoices/printList', [App\Http\Controllers\Admin\InvoiceController::class, 'printList'])->name('invoices.printList');	
 		Route::get('/invoices/print/{id}', [App\Http\Controllers\Admin\InvoiceController::class, 'invoicePrint'])->name('invoices.print');
+		Route::get('/invoices/daily_report', [App\Http\Controllers\Admin\InvoiceController::class, 'invoiceDailyReport'])->name('invoices.daily_report');
+		Route::get('/invoices/daily_report/pdf', [App\Http\Controllers\Admin\InvoiceController::class, 'invoiceDailyReportPdf'])->name('invoices.daily_report.pdf');
 	});
 
 

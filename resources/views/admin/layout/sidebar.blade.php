@@ -174,6 +174,12 @@
                   <p>Invoice Print</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('invoices.daily_report') }}" class="nav-link {{ ($route == 'invoices.daily_report') ? 'active' : '' }} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daily Invoice Report</p>
+                </a>
+              </li>
             </ul>
           </li>
 
