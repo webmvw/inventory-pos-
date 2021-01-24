@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Unit;
 use App\Models\Purchase;
 use Auth;
+use PDF;
 
 class PurchaseController extends Controller
 {
@@ -71,6 +72,21 @@ class PurchaseController extends Controller
             $purchase->save();
             return redirect()->route('purchases.pendingList')->with("success", "Purchase approved Successfully!!");
         } 
+    }
+
+
+    public function dailyReport(){
+        return view('admin.pages.purchase.daily-purchase-report');
+    }
+
+    public function dailyReportPdf(Request $request){
+        $sdate = date('Y-m-d', strtotime($request->start_date));
+        $edate = date('Y-m-d', strtotime($request->end_date));
+        $data['allData'] = Purchase::whereBetween('date', [$sdate,$edate])->where('status', '1')->orderBy('date', 'asc')->get();
+        $data['start_date'] = date('Y-m-d', strtotime($request->start_date));
+        $data['end_date'] = date('Y-m-d', strtotime($request->end_date));
+        $pdf = PDF::loadView('admin.pdf.purchase-daily_report', $data);
+        return $pdf->stream('invoice.pdf');
     }
 
 }

@@ -32,7 +32,7 @@
 
           <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-sm table-bordered table-hover table-striped table-responsive">
+                <table id="example2" class="table table-sm table-bordered table-hover table-striped">
                   <thead>
                   <tr>
                     <th>SL</th>

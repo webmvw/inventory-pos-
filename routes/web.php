@@ -88,6 +88,8 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::get('/delete/{id}', [App\Http\Controllers\Admin\PurchaseController::class, 'delete'])->name('purchases.delete');
 		Route::get('/pendingList', [App\Http\Controllers\Admin\PurchaseController::class, 'pendingList'])->name('purchases.pendingList');
 		Route::get('/approved/{id}', [App\Http\Controllers\Admin\PurchaseController::class, 'approved'])->name('purchases.approved');
+		Route::get('/daily_report', [App\Http\Controllers\Admin\PurchaseController::class, 'dailyReport'])->name('purchases.daily_report');
+		Route::get('/daily_report/pdf', [App\Http\Controllers\Admin\PurchaseController::class, 'dailyReportPdf'])->name('purchases.daily_report.pdf');
 	});
 
 
