@@ -52,7 +52,7 @@
                         <td>{{ $value->invoice->date }}</td>
                         <td>{{ $value->due_amount }}</td>
                         <td>
-                          <a href="" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                          <a href="{{ route('creditCustomer_invoiceEdit', $value->invoice_id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
                           <a href=""  title="Details" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                         </td>
                       </tr>
