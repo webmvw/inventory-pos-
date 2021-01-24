@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\Payment;
 use Auth;
+use PDF;
 
 class CustomerController extends Controller
 {
@@ -50,5 +52,17 @@ class CustomerController extends Controller
     	$getCustomer = Customer::find($id);
     	$getCustomer->delete();
     	return redirect()->route('customers.view')->with("info", "Customer deleted Successfully!!");
+    }
+
+
+    public function creditCustomer(){
+        $allData = Payment::whereIn('paid_status', ['Full_Due', 'Partical_Paid'])->get();
+        return view('admin.pages.customer.credit-customer', compact('allData'));
+    }
+
+    public function creditCustomerPdf(){
+        $data['allData'] = Payment::whereIn('paid_status', ['Full_Due', 'Partical_Paid'])->get();
+        $pdf = PDF::loadView('admin.pdf.credit-customer', $data);
+        return $pdf->stream('invoice.pdf');
     }
 }

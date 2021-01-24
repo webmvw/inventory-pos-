@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Daily Purchase Report</title>
+	<title>Credit Customer Report</title>
 
 </head>
 <body>
@@ -23,7 +23,7 @@
 
 	<hr style="width: 100%; height: 2px; background: green">
 
-	  <h3 align="center" style="margin:0px">Daily Purchase Report ({{ date('d M, Y', strtotime($start_date)) }} - {{ date('d M, Y', strtotime($end_date)) }})</h3>
+	  <h3 align="center" style="margin:0px">Credit Customer Report</h3>
 	  <br>
 
 
@@ -31,34 +31,26 @@
 	    <thead>
 	      <tr class="text-center">
 	        <th>SL</th>
-	        <th>Supplier Name</th>
-	        <th>Category Name</th>
-	        <th>Product Name</th>
-	        <th>Purchase No</th>
-	        <th>Date</th>
-	        <th>Quantity</th>
-	        <th>Unit Price</th>
-	        <th>Buying Price</th>
+            <th>Customer Name</th>
+            <th>Invoice No</th>
+            <th>Date</th>
+            <th>Amount</th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	      @php $total_sum = '0';  @endphp
-	      @foreach($allData as $key=>$value)
-	        <tr class="text-center">
-	          <td>{{ $key+1 }}</td>
-	          <td>{{ $value->supplier->name }}</td>
-	          <td>{{ $value->category->name }}</td>
-	          <td>{{ $value->product->name }}</td>
-	          <td>{{ $value->purchase_no }}</td>
-	          <td>{{ date('d M, Y', strtotime($value->date)) }}</td>
-	          <td align="right">{{ $value->quantity }}</td>
-	          <td align="right">{{ $value->unit_price }}</td>
-	          <td align="right">{{ $value->buying_price }}</td>
-	        </tr>
-	        @php $total_sum += $value->buying_price; @endphp
+	    @php $total_sum = '0';  @endphp
+    	 @foreach($allData as $key=>$value)
+              <tr>
+                <td>{{ $key+1 }}</td>
+                <td>{{ $value->customer->name }} ({{ $value->customer->phone }} - {{ $value->customer->address }})</td>
+                <td align="right">{{ $value->invoice->invoice_no }}</td>
+                <td>{{ date('j F, Y', strtotime($value->invoice->date)) }}</td>
+                <td align="right">{{ $value->due_amount }}</td>
+              </tr>
+          @php $total_sum += $value->due_amount; @endphp
 	      @endforeach
 	      <tr>
-	        <td align="right" colspan="8"><b>Total:</b></td>
+	        <td align="right" colspan="4"><b>Total:</b></td>
 	        <td align="right"><b>{{ $total_sum }}<b></td>
 	      </tr>
 	    </tbody>

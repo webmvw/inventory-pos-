@@ -42,6 +42,8 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::get('/edit/{id}', [App\Http\Controllers\Admin\CustomerController::class, 'edit'])->name('customers.edit');
 		Route::post('/update/{id}', [App\Http\Controllers\Admin\CustomerController::class, 'update'])->name('customers.update');
 		Route::get('/delete/{id}', [App\Http\Controllers\Admin\CustomerController::class, 'delete'])->name('customers.delete');
+		Route::get('/credit', [App\Http\Controllers\Admin\CustomerController::class, 'creditCustomer'])->name('customers.credit');
+		Route::get('/credit/pdf', [App\Http\Controllers\Admin\CustomerController::class, 'creditCustomerPdf'])->name('customers.credit.pdf');
 	});
 
 
