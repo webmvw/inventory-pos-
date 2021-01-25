@@ -100,4 +100,17 @@ class CustomerController extends Controller
             return redirect()->route('customers.credit')->with('success', 'Invoice Successfully Updated.');
         }
     }
+
+
+
+    public function creditCustomerInvoiceDetails($invoice_id){
+        $data['payments'] = Payment::where('invoice_id', $invoice_id)->first();
+        // return view('admin.pages.customer.credit-customer-payment_details', compact('payments'));
+        $pdf = PDF::loadView('admin.pdf.credit-customer-payment_details', $data);
+        return $pdf->stream('invoice.pdf');
+    }
+
+
+
+
 }

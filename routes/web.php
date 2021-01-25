@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::get('/credit/pdf', [App\Http\Controllers\Admin\CustomerController::class, 'creditCustomerPdf'])->name('customers.credit.pdf');
 		Route::get('/credit/invoiceEdit/{invoice_id}', [App\Http\Controllers\Admin\CustomerController::class, 'creditCustomerInvoiceEdit'])->name('creditCustomer_invoiceEdit');
 		Route::post('/credit/invoiceUpdate/{invoice_id}', [App\Http\Controllers\Admin\CustomerController::class, 'creditCustomerInvoiceUpdate'])->name('creditCustomer_invoiceUpdate');
+		Route::get('/credit/invoiceDetails/{invoice_id}', [App\Http\Controllers\Admin\CustomerController::class, 'creditCustomerInvoiceDetails'])->name('creditCustomer_invoiceDetails');
 
 	});
 
